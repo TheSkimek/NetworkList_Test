@@ -7,7 +7,7 @@ public class GameManager : NetworkBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    private NetworkList<PlayerData> playerDataNetworkList;
+    private static NetworkList<PlayerData> playerDataNetworkList = new();
 
     public event EventHandler OnPlayerDataNetworkListChanged;
 
@@ -23,8 +23,6 @@ public class GameManager : NetworkBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
-        playerDataNetworkList = new();
     }
 
     private void Update()
